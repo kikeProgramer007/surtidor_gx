@@ -1,0 +1,30 @@
+Fuente:https://www.youtube.com/playlist?list=PLagd0UOW2HkDr_gzINM7IcvsRCaEoVWrd
+
+> composer global require laravel/installer	-->instala globalmente el instalador de Laravel
+> laravel new surtidor				-->Crear proyecto laravel
+
+> Crear la base de datos
+
+> php artisan migrate	-->Crear tablas por defecto de laravel
+> php artisan db:seed	-->Crear los registros
+> php artisan migrate:fresh --seed	-->Reiniciar tabla y registrar datos
+
+=========== CREAR ATHENTIFICACION ================
+FUENTE:https://laravel.com/docs/11.x/starter-kits#laravel-breeze-installation
+
+> composer require laravel/breeze --dev
+> php artisan breeze:install
+
+   Which Breeze stack would you like to install?
+   > blade
+   Would you like dark mode support? (yes/no) [no]
+   > no
+   Which testing framework do you prefer? [Pest]
+   > 1
+
+> php artisan migrate:fresh --seed
+> npm install
+
+	
+
+
