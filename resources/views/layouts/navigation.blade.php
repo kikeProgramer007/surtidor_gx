@@ -6,8 +6,8 @@
     <div class="d-flex align-items-center justify-content-between">
       <a href="{{ route('dashboard') }}" class="logo d-flex align-items-center">
         {{-- <img src="assets/img/logo.png" alt=""> --}}
-        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
-
+        {{-- <x-application-logo class="block h-9 w-auto fill-current text-gray-800" /> --}}
+        <img src="{{asset('img/logoLogin.png')}}" alt="" class="block h-14 w-auto fill-current text-gray-800">
         <span class="d-none d-lg-block">&nbsp; Surtidor</span>
       </a>
 
