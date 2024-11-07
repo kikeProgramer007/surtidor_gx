@@ -86,15 +86,24 @@
     
           <li class="nav-item">
        
-            <a class="nav-link  {{ request()->routeIs('dashboard') ? '' : 'collapsed'}}" href="{{ route('dashboard') }}">
+            <a class="nav-link  {{ request()->routeIs('cliente.index') ? '' : 'collapsed'}}" href="{{ route('cliente.index') }}">
                 <i class="bi bi-person"></i>
-                <span>{{ __('Clientes') }}</span>
+                <span>Clientes</span>
             </a>
       
 
           </li><!-- End Dashboard Nav -->
     
+          <li class="nav-item">
        
+            <a class="nav-link  {{ request()->routeIs('dashboard') ? '' : 'collapsed'}}" href="{{ route('dashboard') }}">
+                <i class="bi bi-person"></i>
+                <span>Clientes</span>
+            </a>
+      
+
+          </li><!-- End Dashboard Nav -->
+    
           <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
               <i class="bi bi-layout-text-window-reverse"></i><span>Empleados</span><i class="bi bi-chevron-down ms-auto"></i>
