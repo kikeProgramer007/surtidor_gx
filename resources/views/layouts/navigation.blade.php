@@ -107,7 +107,7 @@
             </a>
             <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
               <li>
-                <a href="tables-general.html">
+                <a class="nav-link  {{ request()->routeIs('empleado.index') ? '' : 'collapsed'}}" href="{{ route('empleado.index') }}">
                   <i class="bi bi-circle"></i><span>Empleado</span>
                 </a>
               </li>

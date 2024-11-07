@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,7 +26,14 @@ Route::middleware('auth')->group(function () {
         Route::post('/cliente/update/{cliente}','update')->name('cliente.update');
         Route::get('/cliente/destroy/{cliente}','destroy')->name('cliente.destroy');
     });
-    
+    Route::controller(EmpleadoController::class)->group(function (){
+        Route::get('/empleado','index')->name('empleado.index');
+        Route::get('/empleado/create/','create')->name('empleado.create');
+        Route::post('/empleado/store/','store')->name('empleado.store');
+        Route::get('/empleado/edit/{empleado}','edit')->name('empleado.edit');
+        Route::post('/empleado/update/{empleado}','update')->name('empleado.update');
+        Route::get('/empleado/destroy/{empleado}','destroy')->name('empleado.destroy');
+    });
 });
 
 

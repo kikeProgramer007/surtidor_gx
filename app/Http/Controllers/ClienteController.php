@@ -50,9 +50,9 @@ class ClienteController extends Controller
     public function update(Request $request, Cliente $cliente)
     {
         $request->validate([
+            'ci' => 'required|numeric|max_digits:10',
             'nombre' => 'required|string|max:200',
             'paterno' => 'required|string|max:400',
-            'ci' => 'required|numeric|max_digits:10',
             'materno' => 'required|string|max:400',
             'telefono' => 'required|numeric|max_digits:10',
             'correo' => 'required|string|max:255',

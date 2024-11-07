@@ -33,4 +33,7 @@ php artisan make:model Cliente -mcr     --> CREAR EL MODELO,CONTROLADOR Y LA MIG
 php artisan make:seeder ClienteSeeder   --> CREACION DE SEEDER, ES DECIR REGISTROS EN LA TABLE CLIENTE
 php artisan migrate:refresh --seed      --> ACTUALIZACION DE LA BASE DE DATOS
 
+php artisan make:model Empleado -mcr     --> CREAR EL MODELO,CONTROLADOR Y LA MIGRACION
+php artisan make:seeder EmpleadoSeeder   --> CREACION DE SEEDER, ES DECIR REGISTROS EN LA TABLE CLIENTE
+php artisan migrate:refresh --seed      --> ACTUALIZACION DE LA BASE DE DATOS
 
