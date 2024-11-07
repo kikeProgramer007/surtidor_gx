@@ -24,10 +24,10 @@
 
                         </div>
 
-
+                        <div class="table-responsive">
                         <!-- Table with stripped rows -->
-                        <table class="table table-sm datatable  table-hover table-striped">
-                            <thead>
+                        <table class="datatable table table-sm  table-hover table-striped ">
+                            <thead >
                                 <tr>
                                     <th>Id.</th>
                                     <th>
@@ -70,6 +70,7 @@
                         </table>
                         <!-- End Table with stripped rows -->
 
+                        </div>
                     </div>
                 </div>
 

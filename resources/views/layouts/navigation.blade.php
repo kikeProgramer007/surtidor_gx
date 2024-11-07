@@ -94,16 +94,13 @@
 
           </li><!-- End Dashboard Nav -->
     
-          <li class="nav-item">
-       
+          {{-- <li class="nav-item">
             <a class="nav-link  {{ request()->routeIs('dashboard') ? '' : 'collapsed'}}" href="{{ route('dashboard') }}">
                 <i class="bi bi-person"></i>
                 <span>Clientes</span>
             </a>
-      
+          </li>--}}
 
-          </li><!-- End Dashboard Nav -->
-    
           <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
               <i class="bi bi-layout-text-window-reverse"></i><span>Empleados</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -115,7 +112,7 @@
                 </a>
               </li>
               <li>
-                <a href="tables-data.html">
+                <a href="#">
                   <i class="bi bi-circle"></i><span>Turno</span>
                 </a>
               </li>
