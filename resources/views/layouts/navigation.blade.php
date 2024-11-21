@@ -112,7 +112,7 @@
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a class="nav-link {{ request()->routeIs('turno.index') ? '' : 'collapsed'}}" href="{{ route('turno.index') }}">
                   <i class="bi bi-circle"></i><span>Turno</span>
                 </a>
               </li>

@@ -3,6 +3,7 @@
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TurnoController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -34,6 +35,16 @@ Route::middleware('auth')->group(function () {
         Route::post('/empleado/update/{empleado}','update')->name('empleado.update');
         Route::get('/empleado/destroy/{empleado}','destroy')->name('empleado.destroy');
     });
+
+    Route::controller(TurnoController::class)->group(function (){
+        Route::get('/turno','index')->name('turno.index');
+        Route::get('/turno/create/','create')->name('turno.create');
+        Route::post('/turno/store/','store')->name('turno.store');
+        Route::get('/turno/edit/{turno}','edit')->name('turno.edit');
+        Route::post('/turno/update/{turno}','update')->name('turno.update');
+        Route::get('/turno/destroy/{turno}','destroy')->name('turno.destroy');
+    });
+
 });
 
 
