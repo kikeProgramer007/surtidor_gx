@@ -1,12 +1,12 @@
 <x-app-layout>
 
     <div class="pagetitle">
-        <h1>Crear Empleado</h1>
+        <h1>Crear Proveedor</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item">Clientes</li>
-                <li class="breadcrumb-item active">Crear Empleado</li>
+                <li class="breadcrumb-item">Proveedores</li>
+                <li class="breadcrumb-item active">Crear Proveedor</li>
             </ol>
         </nav>
     </div><!-- End Page Title -->
@@ -17,9 +17,9 @@
                     <div class="card-body">
 
                         <!-- Multi Columns Form -->
-                        <form class="row g-3 mt-0" method="POST" action="{{ route('empleado.store') }}">
+                        <form class="row g-3 mt-0" method="POST" action="{{ route('proveedor.store') }}">
                             @csrf
-                            <div class="col-md-9">
+                            <div class="col-md-12">
                                 <label for="nombre" class="form-label">Nombre</label>
                                 <input type="text" class="form-control" id="nombre" name="nombre"
                                     value="{{ old('nombre') }}">
@@ -29,36 +29,9 @@
                                     </div>
                                 @enderror
                             </div>
-                            <div class="col-md-3">
-                                <label for="ci" class="form-label">CI</label>
-                                <input type="number" class="form-control" id="ci" name="ci"
-                                    value="{{ old('nombre') }}">
-                                @error('nombre')
-                                    <div class="text-danger small">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
-                            <div class="col-md-6">
-                                <label for="paterno" class="form-label">Apellido Paterno</label>
-                                <input type="text" class="form-control" id="paterno" name="paterno"
-                                    value="{{ old('paterno') }}">
-                                @error('paterno')
-                                    <div class="text-danger small">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
-                            <div class="col-md-6">
-                                <label for="materno" class="form-label">Apellido Materno</label>
-                                <input type="text" class="form-control" id="materno" name="materno"
-                                    value="{{ old('materno') }}">
-                                @error('materno')
-                                    <div class="text-danger small">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
+                       
+                  
+                    
 
                             <div class="col-md-6">
                                 <label for="telefono" class="form-label">Telefono</label>
@@ -84,7 +57,7 @@
 
                             <div class="text-center">
                                 <button type="submit" class="btn btn-primary">Guardar</button>
-                                <a href="{{ route('empleado.index') }}" class= "btn btn-secondary">Regresar</a>
+                                <a href="{{ route('proveedor.index') }}" class= "btn btn-secondary">Regresar</a>
                             </div>
                         </form><!-- End Multi Columns Form -->
 

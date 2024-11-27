@@ -51,7 +51,7 @@
                                 @enderror
                             </div>
                             <div class="col-md-6">
-                                <label for="fin_turno" class="form-label">Inicio Turno</label>
+                                <label for="fin_turno" class="form-label">Fin Turno</label>
                                 <input type="datetime-local" class="form-control" id="fin_turno" name="fin_turno" value="{{ old('fin_turno') }}" required>
                                 @error('fin_turno')
                                     <div class="text-danger small">

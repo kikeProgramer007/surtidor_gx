@@ -94,12 +94,12 @@
 
           </li><!-- End Dashboard Nav -->
     
-          {{-- <li class="nav-item">
-            <a class="nav-link  {{ request()->routeIs('dashboard') ? '' : 'collapsed'}}" href="{{ route('dashboard') }}">
+          <li class="nav-item">
+            <a class="nav-link  {{ request()->routeIs('proveedor.index') ? '' : 'collapsed'}}" href="{{ route('proveedor.index') }}">
                 <i class="bi bi-person"></i>
-                <span>Clientes</span>
+                <span>Proveedores</span>
             </a>
-          </li>--}}
+          </li>
 
           <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">

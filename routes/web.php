@@ -3,6 +3,7 @@
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\TurnoController;
 use Illuminate\Support\Facades\Route;
 
@@ -44,7 +45,14 @@ Route::middleware('auth')->group(function () {
         Route::post('/turno/update/{turno}','update')->name('turno.update');
         Route::get('/turno/destroy/{turno}','destroy')->name('turno.destroy');
     });
-
+    Route::controller(ProveedorController::class)->group(function (){
+        Route::get('/proveedor','index')->name('proveedor.index');
+        Route::get('/proveedor/create/','create')->name('proveedor.create');
+        Route::post('/proveedor/store/','store')->name('proveedor.store');
+        Route::get('/proveedor/edit/{proveedor}','edit')->name('proveedor.edit');
+        Route::post('/proveedor/update/{proveedor}','update')->name('proveedor.update');
+        Route::get('/proveedor/destroy/{proveedor}','destroy')->name('proveedor.destroy');
+    });
 });
 
 
