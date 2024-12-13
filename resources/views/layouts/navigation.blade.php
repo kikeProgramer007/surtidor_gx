@@ -85,25 +85,38 @@
         <ul class="sidebar-nav" id="sidebar-nav">
     
           <li class="nav-item">
-       
             <a class="nav-link  {{ request()->routeIs('cliente.index') ? '' : 'collapsed'}}" href="{{ route('cliente.index') }}">
                 <i class="bi bi-person"></i>
                 <span>Clientes</span>
             </a>
-      
-
           </li><!-- End Dashboard Nav -->
-    
+          <li class="nav-item">
+            <a class="nav-link  {{ request()->routeIs('vehiculo.index') ? '' : 'collapsed'}}" href="{{ route('vehiculo.index') }}">
+                <i class="bi bi-car-front-fill"></i>
+                <span>Vehiculos</span>
+            </a>
+          </li><!-- End Dashboard Nav -->
           <li class="nav-item">
             <a class="nav-link  {{ request()->routeIs('proveedor.index') ? '' : 'collapsed'}}" href="{{ route('proveedor.index') }}">
-                <i class="bi bi-person"></i>
-                <span>Proveedores</span>
+            <i class="bi bi-fuel-pump"></i>
+              <span>Combustible</span>
             </a>
           </li>
-
+          <li class="nav-item">
+            <a class="nav-link  {{ request()->routeIs('proveedor.index') ? '' : 'collapsed'}}" href="{{ route('proveedor.index') }}">
+              <i class="bi bi-person-plus"></i>
+              <span>Proveedores</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link  {{ request()->routeIs('user.index') ? '' : 'collapsed'}}" href="{{ route('user.index') }}">
+              <i class="bi bi-people-fill"></i>
+              <span>Usuarios</span>
+            </a>
+          </li>
           <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-              <i class="bi bi-layout-text-window-reverse"></i><span>Empleados</span><i class="bi bi-chevron-down ms-auto"></i>
+            <i class="bi bi-person-fill-gear"></i><span>Empleados</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
               <li>

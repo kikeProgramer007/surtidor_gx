@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('telefono');
             $table->string('direccion');
             $table->tinyInteger('estado')->default(1);
+            $table->bigInteger('id_usuario')->unsigned()->nullable();
+            $table->foreign('id_usuario')->references('id')->on('users');
         });
     }
     

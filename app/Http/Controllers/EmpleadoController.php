@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Empleado;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class EmpleadoController extends Controller
@@ -15,7 +16,8 @@ class EmpleadoController extends Controller
 
     public function create()
     {
-        return view('empleados.create');
+        $users = User::all()->where('status',1);
+        return view('empleados.create',compact('users'));
     }
 
     public function store(Request $request)
@@ -27,8 +29,9 @@ class EmpleadoController extends Controller
             'materno' => 'required|string|max:400',
             'telefono' => 'required|numeric|max_digits:10',
             'direccion' => 'required|string|max:500',
+            'id_usuario' => 'required|numeric',
         ]);
-
+        
         $empleado = new Empleado();
         $empleado->ci = $request->ci;
         $empleado->nombre = $request->nombre;
@@ -36,6 +39,7 @@ class EmpleadoController extends Controller
         $empleado->materno = $request->materno;
         $empleado->telefono = $request->telefono;
         $empleado->direccion = $request->direccion;
+        $empleado->id_usuario = $request->id_usuario;
 
         $empleado->save();
        
@@ -44,7 +48,8 @@ class EmpleadoController extends Controller
 
     public function edit(Empleado $empleado)
     {
-        return view('empleados.edit',compact('empleado'));
+        $users = User::all()->where('status',1);
+        return view('empleados.edit',compact('empleado','users'));
     }
 
     public function update(Request $request, Empleado $empleado)
@@ -56,6 +61,7 @@ class EmpleadoController extends Controller
             'materno' => 'required|string|max:400',
             'telefono' => 'required|numeric|max_digits:10',
             'direccion' => 'required|string|max:255',
+            'id_usuario' => 'required|numeric',
         ]);
         
         $empleado->ci = $request->ci;
@@ -64,6 +70,7 @@ class EmpleadoController extends Controller
         $empleado->materno = $request->materno;
         $empleado->telefono = $request->telefono;
         $empleado->direccion = $request->direccion;
+        $empleado->id_usuario = $request->id_usuario;
 
         $empleado->update();
 

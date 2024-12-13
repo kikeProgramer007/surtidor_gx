@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\TurnoController;
+use App\Http\Controllers\VehiculoController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -53,6 +55,25 @@ Route::middleware('auth')->group(function () {
         Route::post('/proveedor/update/{proveedor}','update')->name('proveedor.update');
         Route::get('/proveedor/destroy/{proveedor}','destroy')->name('proveedor.destroy');
     });
+
+    Route::controller(RegisteredUserController::class)->group(function (){
+        Route::get('/user','index')->name('user.index');
+        Route::get('/user/create/','create')->name('user.create');
+        Route::post('/user/store/','store')->name('user.store');
+        Route::get('/user/edit/{user}','edit')->name('user.edit');
+        Route::post('/user/update/{user}','update')->name('user.update');
+        Route::get('/user/destroy/{user}','destroy')->name('user.destroy');
+    });
+    
+    Route::controller(VehiculoController::class)->group(function (){
+        Route::get('/vehiculo','index')->name('vehiculo.index');
+        Route::get('/vehiculo/create/','create')->name('vehiculo.create');
+        Route::post('/vehiculo/store/','store')->name('vehiculo.store');
+        Route::get('/vehiculo/edit/{vehiculo}','edit')->name('vehiculo.edit');
+        Route::post('/vehiculo/update/{vehiculo}','update')->name('vehiculo.update');
+        Route::get('/vehiculo/destroy/{vehiculo}','destroy')->name('vehiculo.destroy');
+    });
+
 });
 
 

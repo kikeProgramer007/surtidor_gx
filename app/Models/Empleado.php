@@ -16,6 +16,7 @@ class Empleado extends Model
         'telefono',
         'direccion',
         'estado',
+        'id_usuario',
     ];
     public $timestamps=false;
 }

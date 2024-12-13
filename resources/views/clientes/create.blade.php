@@ -32,8 +32,8 @@
                             <div class="col-md-3">
                                 <label for="ci" class="form-label">CI</label>
                                 <input type="number" class="form-control" id="ci" name="ci"
-                                    value="{{ old('nombre') }}">
-                                @error('nombre')
+                                    value="{{ old('ci') }}">
+                                @error('ci')
                                     <div class="text-danger small">
                                         {{ $message }}
                                     </div>

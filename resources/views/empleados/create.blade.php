@@ -79,9 +79,19 @@
                                         {{ $message }}
                                     </div>
                                 @enderror
-
                             </div>
-
+                            <div class="col-md-6">
+                                <label for="id_usuario" class="form-label">Usuario</label>
+                                <select class="form-select" id="id_usuario" name="id_usuario" required>
+                                    <option selected disabled value="">Asignar un usuario</option>
+                                    @foreach ($users as $item)
+                                        <option value="{{ $item->id }}">{{ $item->name}}</option>
+                                    @endforeach
+                                </select>
+                                @error('id_usuario')
+                                    <small class="text-danger"> {{ $message }}</small>
+                                @enderror
+                            </div>
                             <div class="text-center">
                                 <button type="submit" class="btn btn-primary">Guardar</button>
                                 <a href="{{ route('empleado.index') }}" class= "btn btn-secondary">Regresar</a>

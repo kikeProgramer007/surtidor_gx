@@ -25,22 +25,22 @@ FUENTE:https://laravel.com/docs/11.x/starter-kits#laravel-breeze-installation
 > php artisan migrate:fresh --seed
 > npm install
 
-	
-
-
-
 php artisan make:model Cliente -mcr     --> CREAR EL MODELO,CONTROLADOR Y LA MIGRACION
 php artisan make:seeder ClienteSeeder   --> CREACION DE SEEDER, ES DECIR REGISTROS EN LA TABLE CLIENTE
-php artisan migrate:refresh --seed      --> ACTUALIZACION DE LA BASE DE DATOS
 
 php artisan make:model Empleado -mcr     --> CREAR EL MODELO,CONTROLADOR Y LA MIGRACION
 php artisan make:seeder EmpleadoSeeder   --> CREACION DE SEEDER, ES DECIR REGISTROS EN LA TABLE CLIENTE
-php artisan migrate:refresh --seed      --> ACTUALIZACION DE LA BASE DE DATOS
 
 php artisan make:model Turno -mcr     --> CREAR EL MODELO,CONTROLADOR Y LA MIGRACION
 php artisan make:seeder TurnoSeeder   --> CREACION DE SEEDER, ES DECIR REGISTROS EN LA TABLE CLIENTE
-php artisan migrate:refresh --seed      --> ACTUALIZACION DE LA BASE DE DATOS
 
 php artisan make:model Proveedor -mcr     --> CREAR EL MODELO,CONTROLADOR Y LA MIGRACION
 php artisan make:seeder ProveedorSeeder   --> CREACION DE SEEDER, ES DECIR REGISTROS EN LA TABLE CLIENTE
-php artisan migrate:refresh --seed      --> ACTUALIZACION DE LA BASE DE DATOS
+
+
+php artisan make:model Vehiculo -mcr     --> CREAR EL MODELO,CONTROLADOR Y LA MIGRACION
+php artisan make:seeder VehiculoSeeder   --> CREACION DE SEEDER, ES DECIR REGISTROS EN LA TABLE CLIENTE
+
+php artisan make:model Combustible -mcr     --> CREAR EL MODELO,CONTROLADOR Y LA MIGRACION
+php artisan make:seeder CombustibleSeeder   --> CREACION DE SEEDER, ES DECIR REGISTROS EN LA TABLE CLIENTE
+php artisan migrate:refresh --seed          --> ACTUALIZACION DE LA BASE DE DATOS
