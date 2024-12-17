@@ -7,59 +7,67 @@ use Illuminate\Http\Request;
 
 class CombustibleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
-        //
+        $combustibles = Combustible::all()->where('estado',1);
+        return view('combustibles.index',compact('combustibles'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('combustibles.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nombre' => 'required|string|max:300',
+            'precio' => 'required|numeric',
+            'tipo' => 'required|string',
+        ]);
+   
+        $combustible = new Combustible();
+        $combustible->nombre = $request->nombre;
+        $combustible->precio = $request->precio;
+        $combustible->tipo = $request->tipo;
+
+        $combustible->save();
+       
+        return redirect()->route('combustible.index');//IR A ESA RUTA
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Combustible $combustible)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Combustible $combustible)
     {
-        //
+        return view('combustibles.edit',compact('combustible'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Combustible $combustible)
     {
-        //
+        $request->validate([
+            'nombre' => 'required|string|max:300',
+            'precio' => 'required|numeric',
+            'tipo' => 'required|string|max:400',
+        ]);
+        
+        $combustible->nombre = $request->nombre;
+        $combustible->precio = $request->precio;
+        $combustible->tipo = $request->tipo;
+
+        $combustible->update();
+
+        return redirect()->route('combustible.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Combustible $combustible)
     {
-        //
+        $combustible->estado = 0;
+        $combustible->update();
+        return back();
     }
 }

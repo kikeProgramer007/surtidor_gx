@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('combustibles', function (Blueprint $table) {
+        Schema::create('tanques', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->decimal('precio', 10, 2);
-            $table->string('tipo');
+            $table->string('descripcion');
+            $table->decimal('capacidad', 10, 2);
+            $table->string('nivel_actual');//nivel actual de combustible
+            $table->string('ubicacion');
             $table->tinyInteger('estado')->default(1);
         });
     }
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('combustibles');
+        Schema::dropIfExists('tanques');
     }
 };

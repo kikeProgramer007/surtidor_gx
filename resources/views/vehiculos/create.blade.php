@@ -43,7 +43,7 @@
                             </div>
                             <div class="col-md-4">
                                 <label for="marca" class="form-label">Marca</label>
-                                <input type="number" class="form-control" id="marca" name="marca"
+                                <input type="text" class="form-control" id="marca" name="marca"
                                     value="{{ old('marca') }}">
                                 @error('marca')
                                     <div class="text-danger small">

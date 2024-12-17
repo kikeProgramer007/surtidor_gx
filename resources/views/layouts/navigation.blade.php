@@ -97,9 +97,21 @@
             </a>
           </li><!-- End Dashboard Nav -->
           <li class="nav-item">
-            <a class="nav-link  {{ request()->routeIs('proveedor.index') ? '' : 'collapsed'}}" href="{{ route('proveedor.index') }}">
-            <i class="bi bi-fuel-pump"></i>
+            <a class="nav-link  {{ request()->routeIs('combustible.index') ? '' : 'collapsed'}}" href="{{ route('combustible.index') }}">
+            <i class="bi bi-moisture"></i>
               <span>Combustible</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link  {{ request()->routeIs('tanque.index') ? '' : 'collapsed'}}" href="{{ route('tanque.index') }}">
+            <i class="bi bi-speedometer"></i>
+              <span>Tanques</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link  {{ request()->routeIs('tanque.index') ? '' : 'collapsed'}}" href="{{ route('tanque.index') }}">
+            <i class="bi bi-fuel-pump"></i>
+              <span>Bombas</span>
             </a>
           </li>
           <li class="nav-item">

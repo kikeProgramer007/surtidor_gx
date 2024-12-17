@@ -2,9 +2,11 @@
 
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\CombustibleController;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProveedorController;
+use App\Http\Controllers\TanqueController;
 use App\Http\Controllers\TurnoController;
 use App\Http\Controllers\VehiculoController;
 use Illuminate\Support\Facades\Route;
@@ -72,6 +74,24 @@ Route::middleware('auth')->group(function () {
         Route::get('/vehiculo/edit/{vehiculo}','edit')->name('vehiculo.edit');
         Route::post('/vehiculo/update/{vehiculo}','update')->name('vehiculo.update');
         Route::get('/vehiculo/destroy/{vehiculo}','destroy')->name('vehiculo.destroy');
+    });
+    
+    Route::controller(CombustibleController::class)->group(function (){
+        Route::get('/combustible','index')->name('combustible.index');
+        Route::get('/combustible/create/','create')->name('combustible.create');
+        Route::post('/combustible/store/','store')->name('combustible.store');
+        Route::get('/combustible/edit/{combustible}','edit')->name('combustible.edit');
+        Route::post('/combustible/update/{combustible}','update')->name('combustible.update');
+        Route::get('/combustible/destroy/{combustible}','destroy')->name('combustible.destroy');
+    });
+
+    Route::controller(TanqueController::class)->group(function (){
+        Route::get('/tanque','index')->name('tanque.index');
+        Route::get('/tanque/create/','create')->name('tanque.create');
+        Route::post('/tanque/store/','store')->name('tanque.store');
+        Route::get('/tanque/edit/{tanque}','edit')->name('tanque.edit');
+        Route::post('/tanque/update/{tanque}','update')->name('tanque.update');
+        Route::get('/tanque/destroy/{tanque}','destroy')->name('tanque.destroy');
     });
 
 });
