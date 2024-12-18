@@ -61,7 +61,20 @@
                                     </div>
                                 @enderror
                             </div>
-                       
+                            
+                            <div class="col-md-6">
+                                <label for="id_combustible" class="form-label">Combustible Asignado</label>
+                                <select class="form-select" id="id_combustible" name="id_combustible" required>
+                                    <option selected disabled value="">Seleccionar</option>
+                                    @foreach ($combustibles as $item)
+                                        <option value="{{ $item->id }}">{{ $item->nombre}}</option>
+                                    @endforeach
+                                </select>
+                                @error('id_combustible')
+                                    <small class="text-danger"> {{ $message }}</small>
+                                @enderror
+                            </div>
+
                             <div class="text-center">
                                 <button type="submit" class="btn btn-primary">Guardar</button>
                                 <a href="{{ route('tanque.index') }}" class= "btn btn-secondary">Regresar</a>

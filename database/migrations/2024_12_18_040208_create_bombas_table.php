@@ -11,15 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tanques', function (Blueprint $table) {
+        Schema::create('bombas', function (Blueprint $table) {
             $table->id();
             $table->string('descripcion');
-            $table->decimal('capacidad', 10, 2);
-            $table->string('nivel_actual');//nivel actual de combustible
-            $table->string('ubicacion');
+            $table->string('modelo');
             $table->tinyInteger('estado')->default(1);
-            $table->bigInteger('id_combustible')->unsigned()->nullable();
-            $table->foreign('id_combustible')->references('id')->on('combustibles');
+            $table->bigInteger('id_tanque')->unsigned()->nullable();
+            $table->foreign('id_tanque')->references('id')->on('tanques');
         });
     }
 
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tanques');
+        Schema::dropIfExists('bombas');
     }
 };

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\BombaController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\CombustibleController;
 use App\Http\Controllers\EmpleadoController;
@@ -9,6 +10,7 @@ use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\TanqueController;
 use App\Http\Controllers\TurnoController;
 use App\Http\Controllers\VehiculoController;
+use App\Http\Controllers\VentaController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -74,6 +76,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/vehiculo/edit/{vehiculo}','edit')->name('vehiculo.edit');
         Route::post('/vehiculo/update/{vehiculo}','update')->name('vehiculo.update');
         Route::get('/vehiculo/destroy/{vehiculo}','destroy')->name('vehiculo.destroy');
+        Route::get('/vehiculo/autocomplete','autocomplete')->name('vehiculo.autocomplete');
     });
     
     Route::controller(CombustibleController::class)->group(function (){
@@ -94,6 +97,24 @@ Route::middleware('auth')->group(function () {
         Route::get('/tanque/destroy/{tanque}','destroy')->name('tanque.destroy');
     });
 
+    Route::controller(BombaController::class)->group(function (){
+        Route::get('/bomba','index')->name('bomba.index');
+        Route::get('/bomba/create/','create')->name('bomba.create');
+        Route::post('/bomba/store/','store')->name('bomba.store');
+        Route::get('/bomba/edit/{bomba}','edit')->name('bomba.edit');
+        Route::post('/bomba/update/{bomba}','update')->name('bomba.update');
+        Route::get('/bomba/destroy/{bomba}','destroy')->name('bomba.destroy');
+        Route::get('/bomba/search/{id}','search')->name('bomba.search');
+    });
+
+    Route::controller(VentaController::class)->group(function (){
+        Route::get('/venta','index')->name('venta.index');
+        Route::get('/venta/create/','create')->name('venta.create');
+        Route::post('/venta/store/','store')->name('venta.store');
+        Route::get('/venta/edit/{venta}','edit')->name('venta.edit');
+        Route::post('/venta/update/{venta}','update')->name('venta.update');
+        Route::get('/venta/destroy/{venta}','destroy')->name('venta.destroy');
+    });
 });
 
 

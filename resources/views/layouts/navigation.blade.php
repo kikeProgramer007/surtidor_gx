@@ -109,7 +109,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link  {{ request()->routeIs('tanque.index') ? '' : 'collapsed'}}" href="{{ route('tanque.index') }}">
+            <a class="nav-link  {{ request()->routeIs('bomba.index') ? '' : 'collapsed'}}" href="{{ route('bomba.index') }}">
             <i class="bi bi-fuel-pump"></i>
               <span>Bombas</span>
             </a>
@@ -145,16 +145,20 @@
           </li><!-- End Tables Nav -->
     
 
-          <li class="nav-heading">Pages</li>
+          <li class="nav-heading">Ventas</li>
     
-    
+          <li class="nav-item">
+              <a class="nav-link {{ request()->routeIs('venta.index') ? '' : 'collapsed'}}" href="{{ route('venta.index') }}">
+              <i class="bi bi-cash-coin"></i>
+              <span>Ventas</span>
+            </a>
+          </li>
           <li class="nav-item">
             <a class="nav-link {{ request()->routeIs('blank') ? '' : 'collapsed'}}" href="#">
               <i class="bi bi-file-earmark "></i>
-              <span>Ventas</span>
+              <span>Reportes</span>
             </a>
           </li><!-- End Blank Page Nav -->
-    
         </ul>
     
       </aside><!-- End Sidebar-->

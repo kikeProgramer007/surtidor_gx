@@ -1,10 +1,10 @@
 <x-app-layout>
     <div class="pagetitle">
-        <h1>Tanques</h1>
+        <h1>Bombas</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item">Tanque</li>
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item">Bombas</li>
                 <li class="breadcrumb-item active">Datos</li>
             </ol>
         </nav>
@@ -18,7 +18,7 @@
                     <div class="card-body">
                         <div class="card-title pb-0">
                             <div class="mb-0">
-                                <a class="btn btn-primary btn-sm" href="{{ route('tanque.create') }}">
+                                <a class="btn btn-primary btn-sm" href="{{ route('bomba.create') }}">
                                     <i class="bi bi-people me-1"></i>&nbsp;&nbsp;Agregar
                                 </a>
                             </div>
@@ -32,30 +32,29 @@
                                 <tr>
                                     <th> Id </th>
                                     <th> Descripcion </th>
-                                    <th> Combustible Almacenado </th>
-                                    <th> Capacidad </th>
+                                    <th> Modelo </th>
+                                    <th> Tanque de Almacenado </th>
                                     <th> Nivel Actual </th>
-                                    <th> Ubicación </th>
                                     <th width="7px">Acción</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($tanques as $item)
+                                @foreach ($bombas as $item)
                                     <tr>
                                         <td>{{ $item->id }}</td>
                                         <td>{{ $item->descripcion }}</td>
-                                        <td>{{ $item->nombre }}</td>
-                                        <td>{{ $item->capacidad }}</td>
+                                        <td>{{ $item->modelo }}</td>
+
+                                        <td>{{ $item->descripcionTanque }}</td>
                                         <td>{{ $item->nivel_actual }}</td>
-                                        <td>{{ $item->ubicacion }}</td>
                                         <td class="py-1 align-middle text-center">
                                             <div class="btn-group btn-group-sm">
-                                                <a href="{{ route('tanque.edit', $item->id) }}" class="btn btn-info"
+                                                <a href="{{ route('bomba.edit', $item->id) }}" class="btn btn-info"
                                                     rel="tooltip" data-placement="top" title="Editar"><i
                                                         class="bi bi-pencil-square"></i></a>
                                                 <a href="#" class="btn btn-danger" rel="tooltip"
                                                     data-placement="top" title="Eliminar"
-                                                    data-href="{{ route('tanque.destroy', $item->id) }}"
+                                                    data-href="{{ route('bomba.destroy', $item->id) }}"
                                                     data-bs-toggle="modal" data-bs-target="#modal-confirma"><i
                                                         class="bi bi-trash3-fill"></i></a>
                                             </div>

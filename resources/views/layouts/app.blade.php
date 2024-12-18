@@ -30,7 +30,7 @@
     <!-- Template Main CSS File -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
-
+ 
 </head>
 {{-- <body class="font-sans antialiased"> --}}
 
@@ -66,8 +66,16 @@
     <script src="{{ asset('vendor/tinymce/tinymce.min.js') }}"></script>
     <script src="{{ asset('vendor/php-email-form/validate.js') }}"></script>
 
+
+
     <!-- Template Main JS File -->
     <script src="{{ asset('js/main.js') }}"></script>
+    <!-- jQuery -->
+    <!-- jQuery UI -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    
     <script>
         // Agregar evento para cuando el modal se muestra
         document.getElementById('modal-confirma').addEventListener('show.bs.modal', function(e) {

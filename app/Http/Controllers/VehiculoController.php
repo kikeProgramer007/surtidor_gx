@@ -18,7 +18,7 @@ class VehiculoController extends Controller
         ->select('vehiculos.*', 'clientes.nombre','clientes.paterno','clientes.materno')
         ->get();
 
-    return view('vehiculos.index',compact('vehiculos'));
+        return view('vehiculos.index',compact('vehiculos'));
     }
 
     public function create()
@@ -51,9 +51,40 @@ class VehiculoController extends Controller
         return redirect()->route('vehiculo.index');//IR A ESA RUTA
     }
 
-    public function show(Vehiculo $vehiculo)
+    public function autocomplete(Request $request)
     {
-        //
+        $term = $request->get('term'); // Obtén el término de búsqueda
+        $returnData = [];
+
+        // Realiza la búsqueda en la base de datos
+        // $vehiculos = Vehiculo::where('codigo_Bsisa', 'LIKE', '%' . $term . '%')
+        //     ->where('estado', 1)
+        //     ->get();
+
+        $vehiculos = DB::table('vehiculos')
+                        ->join('clientes', 'vehiculos.id_cliente', '=', 'clientes.id')
+                        ->where('codigo_Bsisa', 'LIKE', '%' . $term . '%')
+                        ->where('vehiculos.estado',1)
+                        ->select('vehiculos.*', 'clientes.nombre','clientes.paterno','clientes.materno','clientes.ci','clientes.correo')
+                        ->get();
+        
+        // Formatea los datos para el autocomplete
+        foreach ($vehiculos as $vehiculo) {
+            $returnData[] = [
+                'id' => $vehiculo->id,
+                'value' => $vehiculo->codigo_Bsisa, // Texto que se mostrará en el autocomplete
+                'placa' => $vehiculo->placa,
+                'marca' => $vehiculo->marca,
+                'color' => $vehiculo->color,
+                'nombre' => $vehiculo->nombre,
+                'paterno' => $vehiculo->paterno,
+                'materno' => $vehiculo->materno,
+                'ci' => $vehiculo->ci,
+                'correo' => $vehiculo->correo,
+            ];
+        }
+
+        return response()->json($returnData);
     }
 
     public function edit(Vehiculo $vehiculo)

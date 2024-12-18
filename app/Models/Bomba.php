@@ -4,17 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Tanque extends Model
+class Bomba extends Model
 {
-    protected $table = 'tanques';
+    protected $table = 'bombas';
     protected $primaryKey ='id';
     protected $fillable = [
         'descripcion',
-        'nivel_actual',
-        'capacidad',
-        'ubicacion',
+        'modelo',
         'estado',
-        'id_combustible'
+        'id_tanque'
     ];
     public $timestamps=false;
 }
