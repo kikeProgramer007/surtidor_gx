@@ -28,9 +28,9 @@
                                                 <input type="text" class="form-control" id="codigo_Bsisa"
                                                     name="codigo_Bsisa" value="{{ old('codigo_Bsisa') }}">
                                                 @error('codigo_Bsisa')
-                                                    <div class="text-danger small">
-                                                        {{ $message }}
-                                                    </div>
+                                                <div class="text-danger small">
+                                                    {{ $message }}
+                                                </div>
                                                 @enderror
 
                                                 <input type="hidden" class="form-control" id="id_vehiculo"
@@ -42,9 +42,9 @@
                                                 <input type="text" class="form-control" id="placa" name="placa"
                                                     value="{{ old('placa') }}">
                                                 @error('placa')
-                                                    <div class="text-danger small">
-                                                        {{ $message }}
-                                                    </div>
+                                                <div class="text-danger small">
+                                                    {{ $message }}
+                                                </div>
                                                 @enderror
                                             </div>
 
@@ -83,7 +83,7 @@
                                             <div class="col-md-5 mb-3">
                                                 <label for="ci" class="form-label fw-bold">Cedula Identidad
                                                 </label>
-                                                <input type="number" class="form-control" id="ci"name="ci"
+                                                <input type="number" class="form-control" id="ci" name="ci"
                                                     value="">
                                             </div>
                                             <div class="col-sm-6 mb-3">
@@ -139,13 +139,24 @@
                                             <select class="form-select" id="id_bomba" name="id_bomba" required>
                                                 <option selected disabled value="">Seleccionar</option>
                                                 @foreach ($bombas as $item)
-                                                    <option value="{{ $item->id }}">
-                                                        {{ $item->descripcion . ', ' . $item->nombre }}
-                                                    </option>
+                                                <option value="{{ $item->id }}">
+                                                    {{ $item->descripcion . ', ' . $item->nombre }}
+                                                </option>
                                                 @endforeach
                                             </select>
                                             @error('id_bomba')
-                                                <small class="text-danger"> {{ $message }}</small>
+                                            <small class="text-danger"> {{ $message }}</small>
+                                            @enderror
+                                        </div>
+
+                                        <div class="col-md-12 mb-3">
+                                            <label for="nombreCombustible" class="form-label fw-bold">Combustible</label>
+                                            <input type="text" class="form-control" id="nombreCombustible"
+                                                name="nombreCombustible" value="{{ old('nombreCombustible') }}">
+                                            @error('nombreCombustible')
+                                            <div class="text-danger small">
+                                                {{ $message }}
+                                            </div>
                                             @enderror
                                         </div>
 
@@ -154,25 +165,31 @@
                                             <input type="text" class="form-control" id="nivel_actual"
                                                 name="nivel_actual" value="{{ old('nivel_actual') }}">
                                             @error('nivel_actual')
-                                                <div class="text-danger small">
-                                                    {{ $message }}
-                                                </div>
+                                            <div class="text-danger small">
+                                                {{ $message }}
+                                            </div>
                                             @enderror
                                         </div>
-
                                         <div class="col-md-12 mb-3">
                                             <label for="precio" class="form-label fw-bold">Precio</label>
-                                            <input type="text" class="form-control" id="precio" name="precio"
+                                            <input type="number" class="form-control" id="precio" name="precio"
                                                 value="{{ old('precio') }}">
                                             @error('precio')
-                                                <div class="text-danger small">
-                                                    {{ $message }}
-                                                </div>
+                                            <div class="text-danger small">
+                                                {{ $message }}
+                                            </div>
                                             @enderror
                                         </div>
                                     </div>
                                 </div>
 
+
+                                <div class="input-group input-group-lg">
+                                    <span class="input-group-text fw-bold" id="inputGroup-sizing-lg">TOTAL: </span>
+                                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+                                </div>
+
+                                
                             </div>
 
                         </div>
@@ -262,8 +279,8 @@
     });
 
 
-    $(document).ready(function () {
-        $("#id_bomba").on("change", function () {
+    $(document).ready(function() {
+        $("#id_bomba").on("change", function() {
             const valorSeleccionado = $(this).val(); // Obtén el valor seleccionado
 
             // Verifica que no esté vacío
@@ -272,19 +289,20 @@
                 $.ajax({
                     url: '{{ url('') }}/bomba/search/' + valorSeleccionado, // Ruta al controlador en tu servidor
                     method: 'GET', // Método HTTP
-                    success: function (respuesta) {
+                    success: function(respuesta) {
                         console.log(respuesta); // Verifica la respuesta en la consola
-                        
+
                         // Asegúrate de que la respuesta sea válida
                         if (respuesta) {
                             // Asigna el valor al input con id="precio"
-                            $("#precio").val(respuesta.descripcionTanque);
+                            $("#nombreCombustible").val(respuesta.nombreCombustible);
+                            $("#precio").val(respuesta.precio);
                             $("#nivel_actual").val(respuesta.nivel_actual);
                         } else {
                             alert("No se encontró el registro o el nivel actual.");
                         }
                     },
-                    error: function (xhr, status, error) {
+                    error: function(xhr, status, error) {
                         // Manejo de errores
                         console.error("Error:", error);
                         alert("Ocurrió un error al obtener los datos.");

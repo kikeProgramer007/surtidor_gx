@@ -77,9 +77,10 @@ class BombaController extends Controller
     {
         $bomba = DB::table('bombas')
         ->leftJoin('tanques', 'bombas.id_tanque', '=', 'tanques.id')
+        ->leftJoin('combustibles', 'tanques.id_combustible', '=', 'combustibles.id')
         ->where('bombas.estado', 1)
         ->where('bombas.id', $id) // Busca un solo registro por ID
-        ->select('bombas.*', 'tanques.descripcion as descripcionTanque', 'tanques.nivel_actual')
+        ->select('bombas.*', 'tanques.descripcion as descripcionTanque', 'tanques.nivel_actual','combustibles.nombre as nombreCombustible','combustibles.precio')
         ->first(); // Obtén un solo registro
 
         // Verifica si se encontró el registro
