@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\BombaController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\CombustibleController;
+use App\Http\Controllers\ComprobanteController;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProveedorController;
@@ -109,12 +110,13 @@ Route::middleware('auth')->group(function () {
 
     Route::controller(VentaController::class)->group(function (){
         Route::get('/venta','index')->name('venta.index');
-        Route::get('/venta/create/','create')->name('venta.create');
         Route::post('/venta/store/','store')->name('venta.store');
-        Route::get('/venta/edit/{venta}','edit')->name('venta.edit');
         Route::post('/venta/update/{venta}','update')->name('venta.update');
         Route::get('/venta/destroy/{venta}','destroy')->name('venta.destroy');
     });
+
+    Route::get('/venta/{id}/comprobante', [ComprobanteController::class, 'generarPDF'])->name('venta.comprobante');
+
 });
 
 

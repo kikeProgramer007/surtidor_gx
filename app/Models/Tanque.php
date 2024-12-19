@@ -17,4 +17,9 @@ class Tanque extends Model
         'id_combustible'
     ];
     public $timestamps=false;
+
+    public function combustible()
+    {
+        return $this->belongsTo(Combustible::class, 'id_combustible', 'id');
+    }
 }

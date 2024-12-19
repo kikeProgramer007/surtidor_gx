@@ -14,9 +14,28 @@ class Venta extends Model
         'monto_total',
         'unidad_medida',
         'id_vehiculo',
-        'id_empleado',
+        'id_empleado',//usuario actual que tiene vinculado la tabla empleado
+        'tipo_pago',
         'id_bomba',
         'estado',
     ];
     public $timestamps=true;
+
+
+    public function bomba()
+    {
+        return $this->belongsTo(Bomba::class, 'id_bomba', 'id');
+    }
+    
+    // Relación con el modelo Empleado
+    public function empleado()
+    {
+        return $this->belongsTo(Empleado::class, 'id_empleado', 'id');
+    }
+
+    // Relación con el modelo Vehiculo
+    public function vehiculo()
+    {
+        return $this->belongsTo(Vehiculo::class, 'id_vehiculo', 'id');
+    }
 }

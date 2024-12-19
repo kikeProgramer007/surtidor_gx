@@ -18,4 +18,10 @@ class Vehiculo extends Model
         'estado',
     ];
     public $timestamps=false;
+
+        
+    public function cliente()
+    {
+        return $this->belongsTo(Cliente::class, 'id_cliente', 'id');
+    }
 }

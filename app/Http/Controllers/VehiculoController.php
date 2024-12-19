@@ -76,6 +76,7 @@ class VehiculoController extends Controller
                 'placa' => $vehiculo->placa,
                 'marca' => $vehiculo->marca,
                 'color' => $vehiculo->color,
+                'tipo_vehiculo' => $vehiculo->tipo_vehiculo,
                 'nombre' => $vehiculo->nombre,
                 'paterno' => $vehiculo->paterno,
                 'materno' => $vehiculo->materno,

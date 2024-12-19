@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('fecha');
             $table->decimal('monto_total', 10, 2);
             $table->string('unidad_medida');
+            $table->string('tipo_pago');
             $table->tinyInteger('estado')->default(1);
             $table->bigInteger('id_vehiculo')->unsigned()->nullable();
             $table->bigInteger('id_empleado')->unsigned()->nullable();

@@ -15,4 +15,9 @@ class Bomba extends Model
         'id_tanque'
     ];
     public $timestamps=false;
+
+    public function tanque()
+    {
+        return $this->belongsTo(Tanque::class, 'id_tanque', 'id');
+    }
 }
