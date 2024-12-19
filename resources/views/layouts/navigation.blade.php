@@ -154,9 +154,9 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{ request()->routeIs('blank') ? '' : 'collapsed'}}" href="#">
+          <a class="nav-link {{ request()->routeIs('venta.ventasrealizadas') ? '' : 'collapsed'}}" href="{{ route('venta.ventasrealizadas') }}">
               <i class="bi bi-file-earmark "></i>
-              <span>Reportes</span>
+              <span>Historial de Ventas</span>
             </a>
           </li><!-- End Blank Page Nav -->
         </ul>

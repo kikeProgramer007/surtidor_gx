@@ -97,9 +97,15 @@ class VentaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Venta $venta)
+    public function ventasRealizadas(Venta $venta)
     {
-        //
+        $ventas = DB::table('ventas')
+        ->join('vehiculos', 'ventas.id_vehiculo', '=', 'vehiculos.id')
+        ->where('ventas.estado',1)
+        ->select('ventas.*', 'vehiculos.codigo_Bsisa','vehiculos.placa')
+        ->get();
+
+        return view('ventas.ventasrealizadas',compact('ventas'));
     }
 
     /**
@@ -123,6 +129,21 @@ class VentaController extends Controller
      */
     public function destroy(Venta $venta)
     {
-        //
+         
+        // Identificar el tanque relacionado a la bomba
+        $bomba = Bomba::where('id', $venta->id_bomba)->first();
+   
+        // Restaurar nivel del tanque
+        $tanque = Tanque::findOrFail($bomba->id_tanque);
+        
+        $tanque->nivel_actual += $venta->cantidad;
+        $tanque->update();
+ 
+        // Cambiar el estado de la venta a inactivo
+        $venta->estado = 0;
+        $venta->update();
+     
+        return back();
+ 
     }
 }

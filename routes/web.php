@@ -113,6 +113,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/venta/store/','store')->name('venta.store');
         Route::post('/venta/update/{venta}','update')->name('venta.update');
         Route::get('/venta/destroy/{venta}','destroy')->name('venta.destroy');
+        Route::get('/ventasrealizadas','ventasRealizadas')->name('venta.ventasrealizadas');
     });
 
     Route::get('/venta/{id}/comprobante', [ComprobanteController::class, 'generarPDF'])->name('venta.comprobante');
